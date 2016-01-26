@@ -1,0 +1,6 @@
+framework module Pods_GatherUp {
+  umbrella header "Pods-GatherUp-umbrella.h"
+
+  export *
+  module * { export * }
+}

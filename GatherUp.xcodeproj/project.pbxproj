@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		035DCE6791CE23833CA4875F /* Pods_GatherUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */; };
+		31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3351C55330C00983A46 /* AppDelegate.swift */; };
+		31BEF33B1C55330C00983A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BEF3391C55330C00983A46 /* Main.storyboard */; };
+		31BEF33D1C55330C00983A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BEF33C1C55330C00983A46 /* Assets.xcassets */; };
+		31BEF3401C55330C00983A46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */; };
+		31BEF34B1C55330C00983A46 /* GatherUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF34A1C55330C00983A46 /* GatherUpTests.swift */; };
+		31BEF3561C55330C00983A46 /* GatherUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3551C55330C00983A46 /* GatherUpUITests.swift */; };
+		31BEF3641C55372100983A46 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3631C55372100983A46 /* ListViewController.swift */; };
+		31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3651C55C21200983A46 /* TableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31BEF3471C55330C00983A46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31BEF32A1C55330C00983A46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31BEF3311C55330C00983A46;
+			remoteInfo = GatherUp;
+		};
+		31BEF3521C55330C00983A46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31BEF32A1C55330C00983A46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31BEF3311C55330C00983A46;
+			remoteInfo = GatherUp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.debug.xcconfig"; sourceTree = "<group>"; };
+		31BEF3321C55330C00983A46 /* GatherUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatherUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31BEF3351C55330C00983A46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31BEF33A1C55330C00983A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		31BEF33C1C55330C00983A46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31BEF33F1C55330C00983A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		31BEF3411C55330C00983A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31BEF3461C55330C00983A46 /* GatherUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatherUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31BEF34A1C55330C00983A46 /* GatherUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherUpTests.swift; sourceTree = "<group>"; };
+		31BEF34C1C55330C00983A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31BEF3511C55330C00983A46 /* GatherUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatherUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31BEF3551C55330C00983A46 /* GatherUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatherUpUITests.swift; sourceTree = "<group>"; };
+		31BEF3571C55330C00983A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31BEF3631C55372100983A46 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		31BEF3651C55C21200983A46 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31BEF32F1C55330C00983A46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				035DCE6791CE23833CA4875F /* Pods_GatherUp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF3431C55330C00983A46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF34E1C55330C00983A46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F25E37942465004CF711117 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31BEF3291C55330C00983A46 = {
+			isa = PBXGroup;
+			children = (
+				31BEF3341C55330C00983A46 /* GatherUp */,
+				31BEF3491C55330C00983A46 /* GatherUpTests */,
+				31BEF3541C55330C00983A46 /* GatherUpUITests */,
+				31BEF3331C55330C00983A46 /* Products */,
+				B4976EA339068B262C3FFFF6 /* Pods */,
+				1F25E37942465004CF711117 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		31BEF3331C55330C00983A46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31BEF3321C55330C00983A46 /* GatherUp.app */,
+				31BEF3461C55330C00983A46 /* GatherUpTests.xctest */,
+				31BEF3511C55330C00983A46 /* GatherUpUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31BEF3341C55330C00983A46 /* GatherUp */ = {
+			isa = PBXGroup;
+			children = (
+				31BEF3351C55330C00983A46 /* AppDelegate.swift */,
+				31BEF3391C55330C00983A46 /* Main.storyboard */,
+				31BEF3651C55C21200983A46 /* TableViewCell.swift */,
+				31BEF3631C55372100983A46 /* ListViewController.swift */,
+				31BEF33C1C55330C00983A46 /* Assets.xcassets */,
+				31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */,
+				31BEF3411C55330C00983A46 /* Info.plist */,
+			);
+			path = GatherUp;
+			sourceTree = "<group>";
+		};
+		31BEF3491C55330C00983A46 /* GatherUpTests */ = {
+			isa = PBXGroup;
+			children = (
+				31BEF34A1C55330C00983A46 /* GatherUpTests.swift */,
+				31BEF34C1C55330C00983A46 /* Info.plist */,
+			);
+			path = GatherUpTests;
+			sourceTree = "<group>";
+		};
+		31BEF3541C55330C00983A46 /* GatherUpUITests */ = {
+			isa = PBXGroup;
+			children = (
+				31BEF3551C55330C00983A46 /* GatherUpUITests.swift */,
+				31BEF3571C55330C00983A46 /* Info.plist */,
+			);
+			path = GatherUpUITests;
+			sourceTree = "<group>";
+		};
+		B4976EA339068B262C3FFFF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */,
+				C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31BEF3311C55330C00983A46 /* GatherUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31BEF35A1C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUp" */;
+			buildPhases = (
+				BF8909362E31407973F53617 /* Check Pods Manifest.lock */,
+				31BEF32E1C55330C00983A46 /* Sources */,
+				31BEF32F1C55330C00983A46 /* Frameworks */,
+				31BEF3301C55330C00983A46 /* Resources */,
+				A0C6BB805F78C28769DDC528 /* Embed Pods Frameworks */,
+				0D09EBEB1212B0BA1E5CA3F3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GatherUp;
+			productName = GatherUp;
+			productReference = 31BEF3321C55330C00983A46 /* GatherUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31BEF3451C55330C00983A46 /* GatherUpTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31BEF35D1C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUpTests" */;
+			buildPhases = (
+				31BEF3421C55330C00983A46 /* Sources */,
+				31BEF3431C55330C00983A46 /* Frameworks */,
+				31BEF3441C55330C00983A46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31BEF3481C55330C00983A46 /* PBXTargetDependency */,
+			);
+			name = GatherUpTests;
+			productName = GatherUpTests;
+			productReference = 31BEF3461C55330C00983A46 /* GatherUpTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		31BEF3501C55330C00983A46 /* GatherUpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31BEF3601C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUpUITests" */;
+			buildPhases = (
+				31BEF34D1C55330C00983A46 /* Sources */,
+				31BEF34E1C55330C00983A46 /* Frameworks */,
+				31BEF34F1C55330C00983A46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31BEF3531C55330C00983A46 /* PBXTargetDependency */,
+			);
+			name = GatherUpUITests;
+			productName = GatherUpUITests;
+			productReference = 31BEF3511C55330C00983A46 /* GatherUpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31BEF32A1C55330C00983A46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Nikhil Nandkumar";
+				TargetAttributes = {
+					31BEF3311C55330C00983A46 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9J33FGV6N4;
+					};
+					31BEF3451C55330C00983A46 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9J33FGV6N4;
+						TestTargetID = 31BEF3311C55330C00983A46;
+					};
+					31BEF3501C55330C00983A46 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9J33FGV6N4;
+						TestTargetID = 31BEF3311C55330C00983A46;
+					};
+				};
+			};
+			buildConfigurationList = 31BEF32D1C55330C00983A46 /* Build configuration list for PBXProject "GatherUp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 31BEF3291C55330C00983A46;
+			productRefGroup = 31BEF3331C55330C00983A46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31BEF3311C55330C00983A46 /* GatherUp */,
+				31BEF3451C55330C00983A46 /* GatherUpTests */,
+				31BEF3501C55330C00983A46 /* GatherUpUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31BEF3301C55330C00983A46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BEF3401C55330C00983A46 /* LaunchScreen.storyboard in Resources */,
+				31BEF33D1C55330C00983A46 /* Assets.xcassets in Resources */,
+				31BEF33B1C55330C00983A46 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF3441C55330C00983A46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF34F1C55330C00983A46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D09EBEB1212B0BA1E5CA3F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0C6BB805F78C28769DDC528 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF8909362E31407973F53617 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31BEF32E1C55330C00983A46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */,
+				31BEF3641C55372100983A46 /* ListViewController.swift in Sources */,
+				31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF3421C55330C00983A46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BEF34B1C55330C00983A46 /* GatherUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31BEF34D1C55330C00983A46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31BEF3561C55330C00983A46 /* GatherUpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31BEF3481C55330C00983A46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31BEF3311C55330C00983A46 /* GatherUp */;
+			targetProxy = 31BEF3471C55330C00983A46 /* PBXContainerItemProxy */;
+		};
+		31BEF3531C55330C00983A46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31BEF3311C55330C00983A46 /* GatherUp */;
+			targetProxy = 31BEF3521C55330C00983A46 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		31BEF3391C55330C00983A46 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31BEF33A1C55330C00983A46 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31BEF33F1C55330C00983A46 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		31BEF3581C55330C00983A46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		31BEF3591C55330C00983A46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		31BEF35B1C55330C00983A46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GatherUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		31BEF35C1C55330C00983A46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GatherUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		31BEF35E1C55330C00983A46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GatherUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
+			};
+			name = Debug;
+		};
+		31BEF35F1C55330C00983A46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GatherUpTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
+			};
+			name = Release;
+		};
+		31BEF3611C55330C00983A46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GatherUpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GatherUp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		31BEF3621C55330C00983A46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GatherUpUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GatherUp;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31BEF32D1C55330C00983A46 /* Build configuration list for PBXProject "GatherUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BEF3581C55330C00983A46 /* Debug */,
+				31BEF3591C55330C00983A46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31BEF35A1C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BEF35B1C55330C00983A46 /* Debug */,
+				31BEF35C1C55330C00983A46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31BEF35D1C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUpTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BEF35E1C55330C00983A46 /* Debug */,
+				31BEF35F1C55330C00983A46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31BEF3601C55330C00983A46 /* Build configuration list for PBXNativeTarget "GatherUpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31BEF3611C55330C00983A46 /* Debug */,
+				31BEF3621C55330C00983A46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 31BEF32A1C55330C00983A46 /* Project object */;
+}
