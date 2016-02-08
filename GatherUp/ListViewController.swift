@@ -13,9 +13,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     @IBOutlet weak var tableView: UITableView!
+    var events = [databaseEntries]()
     
-    var database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/")
-    var numberOfEntries:UInt?
+    var database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,28 +24,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
-        /*database.observeEventType(.Value, withBlock: { snapshot in
-            if snapshot.value is NSNull {
-                
-            } else {
-                let events = [snapshot.value]
-                print(events)
-            }
-        })*/
-        
-        var count:UInt = 0
         // Retrieve new posts as they are added to the database
-        database.observeEventType(.ChildAdded, withBlock: { snapshot in
-            count++
-            let events = snapshot.value as! NSObject
-            print("added -> \(snapshot.value)")
-        })
-        // snapshot.childrenCount will always equal count since snapshot.value will include every FEventTypeChildAdded event
-        // triggered before this point.
         database.observeEventType(.Value, withBlock: { snapshot in
-            self.numberOfEntries = snapshot.childrenCount
-            print(2)
-            print("initial data loaded! \(count == snapshot.childrenCount)")
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                self.events = []
+                for snap in snapshots {
+                    if let eventDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let event = databaseEntries(eventKey: key, dict: eventDict)
+                        self.events.append(event)
+                    }
+                }
+            }
+            self.tableView.reloadData()
         })
     }
 
@@ -55,12 +46,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return events.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reusableCell", forIndexPath: indexPath) as! TableViewCell
         
+        cell.titleLabel.text = self.events[indexPath.row].name
+        cell.descriptionLabel.text = self.events[indexPath.row].description
         
         return cell
     }

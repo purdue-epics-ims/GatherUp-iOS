@@ -16,6 +16,8 @@
 		31BEF3561C55330C00983A46 /* GatherUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3551C55330C00983A46 /* GatherUpUITests.swift */; };
 		31BEF3641C55372100983A46 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3631C55372100983A46 /* ListViewController.swift */; };
 		31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3651C55C21200983A46 /* TableViewCell.swift */; };
+		31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29671C663BC1009D7AC6 /* databaseEntries.swift */; };
+		31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29691C6641C7009D7AC6 /* attendees.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		31BEF3571C55330C00983A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BEF3631C55372100983A46 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		31BEF3651C55C21200983A46 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		31FA29671C663BC1009D7AC6 /* databaseEntries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseEntries.swift; sourceTree = "<group>"; };
+		31FA29691C6641C7009D7AC6 /* attendees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = attendees.swift; sourceTree = "<group>"; };
 		A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +122,8 @@
 				31BEF3391C55330C00983A46 /* Main.storyboard */,
 				31BEF3651C55C21200983A46 /* TableViewCell.swift */,
 				31BEF3631C55372100983A46 /* ListViewController.swift */,
+				31FA29671C663BC1009D7AC6 /* databaseEntries.swift */,
+				31FA29691C6641C7009D7AC6 /* attendees.swift */,
 				31BEF33C1C55330C00983A46 /* Assets.xcassets */,
 				31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */,
 				31BEF3411C55330C00983A46 /* Info.plist */,
@@ -337,9 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */,
 				31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */,
 				31BEF3641C55372100983A46 /* ListViewController.swift in Sources */,
 				31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */,
+				31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
