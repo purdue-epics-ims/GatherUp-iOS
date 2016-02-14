@@ -18,6 +18,7 @@
 		31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3651C55C21200983A46 /* TableViewCell.swift */; };
 		31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29671C663BC1009D7AC6 /* databaseEntries.swift */; };
 		31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29691C6641C7009D7AC6 /* attendees.swift */; };
+		F4750F181C6BE00F009A6BDD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4750F171C6BE00F009A6BDD /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		31FA29691C6641C7009D7AC6 /* attendees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = attendees.swift; sourceTree = "<group>"; };
 		A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.release.xcconfig"; sourceTree = "<group>"; };
+		F4750F171C6BE00F009A6BDD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		31BEF3291C55330C00983A46 = {
 			isa = PBXGroup;
 			children = (
+				F4750F171C6BE00F009A6BDD /* Media.xcassets */,
 				31BEF3341C55330C00983A46 /* GatherUp */,
 				31BEF3491C55330C00983A46 /* GatherUpTests */,
 				31BEF3541C55330C00983A46 /* GatherUpUITests */,
@@ -270,6 +273,7 @@
 			files = (
 				31BEF3401C55330C00983A46 /* LaunchScreen.storyboard in Resources */,
 				31BEF33D1C55330C00983A46 /* Assets.xcassets in Resources */,
+				F4750F181C6BE00F009A6BDD /* Media.xcassets in Resources */,
 				31BEF33B1C55330C00983A46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
