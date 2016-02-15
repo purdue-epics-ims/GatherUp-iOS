@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusableCell" rowHeight="122" id="mDC-aO-Yk4" customClass="TableViewCell" customModule="GatherUp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusableCell" rowHeight="122" id="mDC-aO-Yk4" customClass="TableViewCell" customModule="GatherUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDC-aO-Yk4" id="egZ-4E-SFo">
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ln-9j-eRG">
-                                <rect key="frame" x="0.0" y="396" width="600" height="40"/>
+                                <rect key="frame" x="0.0" y="366" width="600" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Register"/>
                             </button>
@@ -138,6 +138,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="2g1-5o-ebz" secondAttribute="leading" id="39N-zd-wKt"/>
                             <constraint firstItem="F4h-5i-phh" firstAttribute="leading" secondItem="2g1-5o-ebz" secondAttribute="trailing" constant="25" id="4W0-xp-kKC"/>
@@ -146,7 +147,7 @@
                             <constraint firstItem="AvS-bh-BO5" firstAttribute="centerX" secondItem="Ois-1v-SXE" secondAttribute="centerX" id="DrH-ZP-JoB"/>
                             <constraint firstItem="2g1-5o-ebz" firstAttribute="top" secondItem="KUZ-fc-om6" secondAttribute="bottom" constant="25" id="H0Y-ky-Vob"/>
                             <constraint firstItem="AY5-vl-Hqz" firstAttribute="top" secondItem="AvS-bh-BO5" secondAttribute="bottom" constant="20" id="Hg3-QW-odH"/>
-                            <constraint firstItem="4Ln-9j-eRG" firstAttribute="top" secondItem="kbL-Px-mhC" secondAttribute="bottom" constant="56" id="LKZ-fT-2NQ"/>
+                            <constraint firstItem="4Ln-9j-eRG" firstAttribute="top" secondItem="kbL-Px-mhC" secondAttribute="bottom" constant="26" id="LKZ-fT-2NQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F4h-5i-phh" secondAttribute="trailing" constant="10" id="MwC-gd-Uy5"/>
                             <constraint firstItem="kbL-Px-mhC" firstAttribute="leading" secondItem="tBu-Zv-LhZ" secondAttribute="trailing" constant="66" id="VEP-Z0-KhD"/>
                             <constraint firstItem="kbL-Px-mhC" firstAttribute="top" secondItem="mix-8H-Usw" secondAttribute="bottom" constant="15" id="bdK-rH-TDX"/>
