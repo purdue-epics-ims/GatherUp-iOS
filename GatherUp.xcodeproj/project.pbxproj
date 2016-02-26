@@ -16,8 +16,18 @@
 		31BEF3561C55330C00983A46 /* GatherUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3551C55330C00983A46 /* GatherUpUITests.swift */; };
 		31BEF3641C55372100983A46 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3631C55372100983A46 /* ListViewController.swift */; };
 		31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3651C55C21200983A46 /* TableViewCell.swift */; };
+		31C3F8B81C7FE58800D44AF7 /* CommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8AF1C7FE58800D44AF7 /* CommandViewController.m */; };
+		31C3F8B91C7FE58800D44AF7 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8B11C7FE58800D44AF7 /* HelpViewController.m */; };
+		31C3F8BA1C7FE58800D44AF7 /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8B31C7FE58800D44AF7 /* ReaderViewController.m */; };
+		31C3F8BB1C7FE58800D44AF7 /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8B51C7FE58800D44AF7 /* SwipeViewController.m */; };
+		31C3F8BC1C7FE58800D44AF7 /* UniMagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8B71C7FE58800D44AF7 /* UniMagViewController.m */; };
+		31C3F8C11C7FE59400D44AF7 /* AboutScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8BE1C7FE59400D44AF7 /* AboutScreenViewController.m */; };
+		31C3F8C21C7FE59400D44AF7 /* UMCardData.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8C01C7FE59400D44AF7 /* UMCardData.m */; };
+		31C3F8C41C7FE64A00D44AF7 /* IDTECH_UniMag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C3F8C31C7FE64A00D44AF7 /* IDTECH_UniMag.a */; };
+		31CED5801C7D6D4F003FD3A5 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */; };
 		31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29671C663BC1009D7AC6 /* databaseEntries.swift */; };
 		31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29691C6641C7009D7AC6 /* attendees.swift */; };
+		F4750F181C6BE00F009A6BDD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4750F171C6BE00F009A6BDD /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +63,29 @@
 		31BEF3571C55330C00983A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31BEF3631C55372100983A46 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		31BEF3651C55C21200983A46 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		31C3F8AE1C7FE58800D44AF7 /* CommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandViewController.h; sourceTree = "<group>"; };
+		31C3F8AF1C7FE58800D44AF7 /* CommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandViewController.m; sourceTree = "<group>"; };
+		31C3F8B01C7FE58800D44AF7 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		31C3F8B11C7FE58800D44AF7 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		31C3F8B21C7FE58800D44AF7 /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderViewController.h; sourceTree = "<group>"; };
+		31C3F8B31C7FE58800D44AF7 /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
+		31C3F8B41C7FE58800D44AF7 /* SwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
+		31C3F8B51C7FE58800D44AF7 /* SwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
+		31C3F8B61C7FE58800D44AF7 /* UniMagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniMagViewController.h; sourceTree = "<group>"; };
+		31C3F8B71C7FE58800D44AF7 /* UniMagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniMagViewController.m; sourceTree = "<group>"; };
+		31C3F8BD1C7FE59400D44AF7 /* AboutScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutScreenViewController.h; sourceTree = "<group>"; };
+		31C3F8BE1C7FE59400D44AF7 /* AboutScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutScreenViewController.m; sourceTree = "<group>"; };
+		31C3F8BF1C7FE59400D44AF7 /* UMCardData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMCardData.h; sourceTree = "<group>"; };
+		31C3F8C01C7FE59400D44AF7 /* UMCardData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMCardData.m; sourceTree = "<group>"; };
+		31C3F8C31C7FE64A00D44AF7 /* IDTECH_UniMag.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = IDTECH_UniMag.a; sourceTree = "<group>"; };
+		31CED5781C7D6A24003FD3A5 /* uniMag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uniMag.h; sourceTree = "<group>"; };
+		31CED5791C7D6A65003FD3A5 /* GatherUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GatherUp-Bridging-Header.h"; sourceTree = "<group>"; };
+		31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
 		31FA29671C663BC1009D7AC6 /* databaseEntries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseEntries.swift; sourceTree = "<group>"; };
 		31FA29691C6641C7009D7AC6 /* attendees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = attendees.swift; sourceTree = "<group>"; };
 		A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.release.xcconfig"; sourceTree = "<group>"; };
+		F4750F171C6BE00F009A6BDD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				035DCE6791CE23833CA4875F /* Pods_GatherUp.framework in Frameworks */,
+				31C3F8C41C7FE64A00D44AF7 /* IDTECH_UniMag.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +126,7 @@
 		31BEF3291C55330C00983A46 = {
 			isa = PBXGroup;
 			children = (
+				F4750F171C6BE00F009A6BDD /* Media.xcassets */,
 				31BEF3341C55330C00983A46 /* GatherUp */,
 				31BEF3491C55330C00983A46 /* GatherUpTests */,
 				31BEF3541C55330C00983A46 /* GatherUpUITests */,
@@ -118,12 +149,15 @@
 		31BEF3341C55330C00983A46 /* GatherUp */ = {
 			isa = PBXGroup;
 			children = (
+				31C3F8AD1C7FE56B00D44AF7 /* UniMag Files */,
 				31BEF3351C55330C00983A46 /* AppDelegate.swift */,
 				31BEF3391C55330C00983A46 /* Main.storyboard */,
 				31BEF3651C55C21200983A46 /* TableViewCell.swift */,
 				31BEF3631C55372100983A46 /* ListViewController.swift */,
+				31CED5791C7D6A65003FD3A5 /* GatherUp-Bridging-Header.h */,
 				31FA29671C663BC1009D7AC6 /* databaseEntries.swift */,
 				31FA29691C6641C7009D7AC6 /* attendees.swift */,
+				31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */,
 				31BEF33C1C55330C00983A46 /* Assets.xcassets */,
 				31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */,
 				31BEF3411C55330C00983A46 /* Info.plist */,
@@ -147,6 +181,29 @@
 				31BEF3571C55330C00983A46 /* Info.plist */,
 			);
 			path = GatherUpUITests;
+			sourceTree = "<group>";
+		};
+		31C3F8AD1C7FE56B00D44AF7 /* UniMag Files */ = {
+			isa = PBXGroup;
+			children = (
+				31C3F8AE1C7FE58800D44AF7 /* CommandViewController.h */,
+				31C3F8AF1C7FE58800D44AF7 /* CommandViewController.m */,
+				31C3F8B01C7FE58800D44AF7 /* HelpViewController.h */,
+				31C3F8B11C7FE58800D44AF7 /* HelpViewController.m */,
+				31C3F8B21C7FE58800D44AF7 /* ReaderViewController.h */,
+				31C3F8B31C7FE58800D44AF7 /* ReaderViewController.m */,
+				31C3F8B41C7FE58800D44AF7 /* SwipeViewController.h */,
+				31C3F8B51C7FE58800D44AF7 /* SwipeViewController.m */,
+				31C3F8B61C7FE58800D44AF7 /* UniMagViewController.h */,
+				31C3F8B71C7FE58800D44AF7 /* UniMagViewController.m */,
+				31C3F8BD1C7FE59400D44AF7 /* AboutScreenViewController.h */,
+				31C3F8BE1C7FE59400D44AF7 /* AboutScreenViewController.m */,
+				31C3F8BF1C7FE59400D44AF7 /* UMCardData.h */,
+				31C3F8C01C7FE59400D44AF7 /* UMCardData.m */,
+				31CED5781C7D6A24003FD3A5 /* uniMag.h */,
+				31C3F8C31C7FE64A00D44AF7 /* IDTECH_UniMag.a */,
+			);
+			name = "UniMag Files";
 			sourceTree = "<group>";
 		};
 		B4976EA339068B262C3FFFF6 /* Pods */ = {
@@ -270,6 +327,7 @@
 			files = (
 				31BEF3401C55330C00983A46 /* LaunchScreen.storyboard in Resources */,
 				31BEF33D1C55330C00983A46 /* Assets.xcassets in Resources */,
+				F4750F181C6BE00F009A6BDD /* Media.xcassets in Resources */,
 				31BEF33B1C55330C00983A46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,11 +401,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C3F8C21C7FE59400D44AF7 /* UMCardData.m in Sources */,
 				31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */,
+				31C3F8BC1C7FE58800D44AF7 /* UniMagViewController.m in Sources */,
 				31BEF3661C55C21200983A46 /* TableViewCell.swift in Sources */,
 				31BEF3641C55372100983A46 /* ListViewController.swift in Sources */,
+				31C3F8C11C7FE59400D44AF7 /* AboutScreenViewController.m in Sources */,
+				31C3F8BB1C7FE58800D44AF7 /* SwipeViewController.m in Sources */,
+				31C3F8BA1C7FE58800D44AF7 /* ReaderViewController.m in Sources */,
 				31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */,
+				31C3F8B81C7FE58800D44AF7 /* CommandViewController.m in Sources */,
 				31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */,
+				31CED5801C7D6D4F003FD3A5 /* AttendanceViewController.swift in Sources */,
+				31C3F8B91C7FE58800D44AF7 /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,10 +554,17 @@
 			baseConfigurationReference = 05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GatherUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GatherUp",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -501,10 +574,17 @@
 			baseConfigurationReference = C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GatherUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GatherUp",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
