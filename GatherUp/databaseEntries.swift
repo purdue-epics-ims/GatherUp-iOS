@@ -23,6 +23,10 @@ class databaseEntries {
         return _description
     }
     
+    var key:String {
+        return _eventKey
+    }
+    
     init(name:String, description:String) {
         self._name = name
         self._description = description

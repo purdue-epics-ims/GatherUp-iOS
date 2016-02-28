@@ -11,7 +11,6 @@ import Firebase
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     @IBOutlet weak var tableView: UITableView!
     var events = [databaseEntries]()
     
@@ -59,8 +58,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].key, forKey: "selectedEvent")
+    }
     
     /*
     // MARK: - Navigation
