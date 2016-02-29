@@ -24,7 +24,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         // Retrieve new posts as they are added to the database
-        database.observeEventType(.Value, withBlock: { snapshot in
+        database.queryOrderedByChild("dateID").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 self.events = []
                 for snap in snapshots {
