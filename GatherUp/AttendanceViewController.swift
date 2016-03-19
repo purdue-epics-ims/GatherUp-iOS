@@ -12,7 +12,7 @@ import AudioToolbox
 import MediaPlayer
 import Firebase
 
-class AttendanceViewController: UIViewController {
+class AttendanceViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
@@ -43,6 +43,10 @@ class AttendanceViewController: UIViewController {
         
         uniMagObject.setAutoAdjustVolume(true)
         
+        self.firstNameText.delegate = self
+        self.lastNameText.delegate = self
+        self.emailText.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +70,12 @@ class AttendanceViewController: UIViewController {
         }
     }
     
+    @IBAction func onScreenTap(sender: UITapGestureRecognizer!) {
+        self.firstNameText.resignFirstResponder()
+        self.lastNameText.resignFirstResponder()
+        self.emailText.resignFirstResponder()
+    }
+    
     func uniMagConnected(notification: NSNotification) {
         self.showAlert("Swiper Connected", msg: "You may begin swiping Purdue IDs")
         uniMagViewController.swipeCard()
@@ -86,9 +96,66 @@ class AttendanceViewController: UIViewController {
         range = parsedData.startIndex.advancedBy(10)..<parsedData.endIndex
         parsedData.removeRange(range)
         
-        print("Card Data: \(parsedData)")
+        var checker = Int(parsedData)
         
-        postToFirebase(parsedData)
+        var luhn:Int = 0
+        
+        for tempChar in parsedData.unicodeScalars {
+            if (tempChar.value < 48 || tempChar.value > 57) {
+                luhn = 1
+            }
+        }
+        
+        var factor:Int = 1
+        
+        while checker > 0 {
+            var addendum:Int = (checker! % 10) * factor
+            
+            if addendum >= 10 {
+                var modifiedAddendum:Int = 0
+                
+                while addendum > 0 {
+                    modifiedAddendum = modifiedAddendum + addendum % 10
+                    addendum = Int(addendum / 10)
+                }
+                
+                addendum = modifiedAddendum
+            }
+            
+            luhn = luhn + addendum
+            
+            factor = factor + 1
+            checker = Int(checker! / 10)
+        }
+        
+        luhn = luhn % 10
+        
+        if luhn == 0 {
+        
+            UIView.animateWithDuration(1.0, animations: {
+                self.view.backgroundColor = UIColor.greenColor()
+            })
+            
+            UIView.animateWithDuration(1.0, animations: {
+                self.view.backgroundColor = UIColor.whiteColor()
+            })
+            
+            print("Card Data: \(parsedData)")
+            
+            postToFirebase(parsedData)
+            
+        }
+        
+        else {
+            
+            UIView.animateWithDuration(1.0, animations: {
+                self.view.backgroundColor = UIColor.redColor()
+            })
+            
+            UIView.animateWithDuration(1.0, animations: {
+                self.view.backgroundColor = UIColor.whiteColor()
+            })
+        }
         
         uniMagViewController.swipeCard()
     }

@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-1691" y="332"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="qYG-m2-FVm">
             <objects>
-                <viewController id="2U7-Sp-aol" sceneMemberID="viewController">
+                <viewController id="2U7-Sp-aol" customClass="LoginViewController" customModule="GatherUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yh7-aq-rWN"/>
                         <viewControllerLayoutGuide type="bottom" id="NmD-Zt-m6V"/>
@@ -111,7 +111,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wF-sX-Wx1">
                                 <rect key="frame" x="128" y="284" width="452" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GatherUP" translatesAutoresizingMaskIntoConstraints="NO" id="MML-Sd-WKX">
                                 <rect key="frame" x="20" y="42" width="560" height="168"/>
@@ -124,11 +124,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Zyz-Vt-4Et"/>
+                                    <action selector="onLoginPressed:" destination="2U7-Sp-aol" eventType="touchUpInside" id="cZP-UI-QCQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="C54-Z0-RFm" firstAttribute="top" secondItem="ih3-u2-jez" secondAttribute="bottom" constant="31" id="70x-DO-fvy"/>
                             <constraint firstItem="1Gf-bd-HBZ" firstAttribute="centerX" secondItem="evu-yP-iNJ" secondAttribute="centerX" id="7jd-0s-FZR"/>
@@ -154,12 +155,25 @@
                                 <exclude reference="Ylr-yX-otx"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bMV-ur-BOH" appends="YES" id="2I5-hB-SeG"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="LKh-QE-yVY"/>
+                    <connections>
+                        <outlet property="passwordText" destination="1wF-sX-Wx1" id="tm8-zw-yYV"/>
+                        <outlet property="usernameText" destination="YBa-nu-fxP" id="VYq-Wx-RhI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="homePage" id="gdp-nh-Xmk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9KF-bQ-j2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bMV-ur-BOH">
+                    <connections>
+                        <action selector="onScreenTap:" destination="2U7-Sp-aol" id="98D-kV-m8u"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-287" y="315"/>
+            <point key="canvasLocation" x="-411" y="285"/>
         </scene>
         <!--Attendance View Controller-->
         <scene sceneID="vJa-xz-QH7">
@@ -234,6 +248,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="2g1-5o-ebz" secondAttribute="leading" id="39N-zd-wKt"/>
                             <constraint firstItem="F4h-5i-phh" firstAttribute="leading" secondItem="2g1-5o-ebz" secondAttribute="trailing" constant="25" id="4W0-xp-kKC"/>
@@ -266,6 +281,9 @@
                                 <exclude reference="LKZ-fT-2NQ"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="s2K-SM-VOv" appends="YES" id="ab8-mG-MWZ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailText" destination="kbL-Px-mhC" id="iho-AK-ADe"/>
@@ -274,6 +292,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1w-Y0-ZiX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="s2K-SM-VOv">
+                    <connections>
+                        <action selector="onScreenTap:" destination="0aq-MK-qv5" id="o22-V4-6GR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1193" y="315"/>
         </scene>

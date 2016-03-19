@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		035DCE6791CE23833CA4875F /* Pods_GatherUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */; };
+		317C2C291C8DDA200029DB28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317C2C281C8DDA200029DB28 /* LoginViewController.swift */; };
 		31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BEF3351C55330C00983A46 /* AppDelegate.swift */; };
 		31BEF33B1C55330C00983A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BEF3391C55330C00983A46 /* Main.storyboard */; };
 		31BEF33D1C55330C00983A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31BEF33C1C55330C00983A46 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatherUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GatherUp/Pods-GatherUp.debug.xcconfig"; sourceTree = "<group>"; };
+		317C2C281C8DDA200029DB28 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31BEF3321C55330C00983A46 /* GatherUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatherUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BEF3351C55330C00983A46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BEF33A1C55330C00983A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				31FA29671C663BC1009D7AC6 /* databaseEntries.swift */,
 				31FA29691C6641C7009D7AC6 /* attendees.swift */,
 				31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */,
+				317C2C281C8DDA200029DB28 /* LoginViewController.swift */,
 				31BEF33C1C55330C00983A46 /* Assets.xcassets */,
 				31BEF33E1C55330C00983A46 /* LaunchScreen.storyboard */,
 				31BEF3411C55330C00983A46 /* Info.plist */,
@@ -401,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				317C2C291C8DDA200029DB28 /* LoginViewController.swift in Sources */,
 				31C3F8C21C7FE59400D44AF7 /* UMCardData.m in Sources */,
 				31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */,
 				31C3F8BC1C7FE58800D44AF7 /* UniMagViewController.m in Sources */,
