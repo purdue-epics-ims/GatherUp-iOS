@@ -22,6 +22,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         self.usernameText.delegate = self
         self.passwordText.delegate = self
+        
+        self.usernameText.text = ""
+        self.passwordText.text = ""
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if NSUserDefaults.standardUserDefaults().valueForKey("accountUID") != nil {
+            self.performSegueWithIdentifier("homePage", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +46,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 if error != nil {
                     if error.code == -8 {
-                        self.showErrorAlert("Account does not exist", msg: "Oops! Looks like you haven't created an account with us yet!")
+                        self.showErrorAlert("Account does not exist", msg: "Oops! Looks like you haven't been authorized yet!")
                         
                     }
                     else {
                         self.showErrorAlert("Invalid UserID or Password", msg: "Oops! Looks like you've made a typo or forgotten your username/password!")
                     }
                 } else {
+                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "accountUID")
                     self.performSegueWithIdentifier("homePage", sender: nil)
                 }
             })

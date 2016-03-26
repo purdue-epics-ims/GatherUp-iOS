@@ -23,10 +23,14 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     
     var uniMagViewController: UniMagViewController = UniMagViewController()
     
+    var eventAttendees = [attendees]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        //self.title = NSUserDefaults.standardUserDefaults().valueForKey("selectedEventName") as! String
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "uniMagConnected:", name: uniMagDidConnectNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "swipeReceived:", name: uniMagDidReceiveDataNotification, object: nil)
@@ -47,6 +51,26 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         self.lastNameText.delegate = self
         self.emailText.delegate = self
         
+        let selectedEvent = NSUserDefaults.standardUserDefaults().valueForKey("selectedEvent") as! String
+        
+        let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees")
+        
+        database.observeEventType(.Value, withBlock: { snapshot in
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                self.eventAttendees = []
+                for snap in snapshots {
+                    if let attendeesDict = snap.value as? Dictionary<String, AnyObject> {
+                        let attendee = attendees(dict: attendeesDict)
+                        self.eventAttendees.append(attendee)
+                    }
+                }
+            }
+        })
+        
+        self.navigationItem.hidesBackButton = true
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "goToList:")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,9 +81,31 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onPressRegister(sender: UIButton!) {
         if let fName = firstNameText.text where fName != "", let lName = lastNameText.text where lName != "", let email = emailText.text where email != "" {
             
-            let name = fName + " " + lName
+            var exists = 0;
             
-            postToFirebase(name, email: email)
+            for attendee in eventAttendees {
+                if (lName == attendee.lastName && fName == attendee.firstName && email == attendee.email) {
+                    
+                    UIView.animateWithDuration(1.0, animations: {
+                        self.view.backgroundColor = UIColor.yellowColor()
+                    })
+                    
+                    UIView.animateWithDuration(1.0, animations: {
+                        self.view.backgroundColor = UIColor.whiteColor()
+                    })
+                    
+                    exists = 1
+                }
+            }
+            
+            if exists == 0 {
+                self.showAlert("Registered!", msg: "You have successfully registered for the event!")
+                postToFirebase(lastName: lName, firstName: fName, email: email)
+            }
+            
+            else {
+                self.showAlert("Unsuccessful!", msg: "You have already registered for the event!")
+            }
             
             firstNameText.text = ""
             lastNameText.text = ""
@@ -131,18 +177,39 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         luhn = luhn % 10
         
         if luhn == 0 {
-        
-            UIView.animateWithDuration(1.0, animations: {
-                self.view.backgroundColor = UIColor.greenColor()
-            })
             
-            UIView.animateWithDuration(1.0, animations: {
-                self.view.backgroundColor = UIColor.whiteColor()
-            })
+            var exists = 0;
             
-            print("Card Data: \(parsedData)")
+            for attendee in eventAttendees {
+                if parsedData == attendee.puid {
+                    
+                    UIView.animateWithDuration(1.0, animations: {
+                        self.view.backgroundColor = UIColor.yellowColor()
+                    })
+                    
+                    UIView.animateWithDuration(1.0, animations: {
+                        self.view.backgroundColor = UIColor.whiteColor()
+                    })
+                    
+                    exists = 1
+                }
+            }
             
-            postToFirebase(parsedData)
+            if exists == 0 {
+            
+                UIView.animateWithDuration(1.0, animations: {
+                    self.view.backgroundColor = UIColor.greenColor()
+                })
+                
+                UIView.animateWithDuration(1.0, animations: {
+                    self.view.backgroundColor = UIColor.whiteColor()
+                })
+                
+                print("Card Data: \(parsedData)")
+                
+                postToFirebase(puid: parsedData)
+                    
+            }
             
         }
         
@@ -162,35 +229,29 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     
     func showAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
     
-    func postToFirebase(name: String, email: String) {
+    func postToFirebase(puid puid: String = "", lastName: String = "", firstName:String = "", email: String = "") {
         var newAttendee: Dictionary<String,AnyObject> = [
-            "name": name,
+            "puid": puid,
+            "last name": lastName,
+            "first name": firstName,
             "email": email
         ]
         
         let selectedEvent = NSUserDefaults.standardUserDefaults().valueForKey("selectedEvent") as! String
-        let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees").childByAutoId()
         
-        database.setValue(newAttendee)
+        let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees")
+        
+        database.childByAutoId().setValue(newAttendee)
     }
     
-    func postToFirebase(puid: String) {
-        var newAttendee: Dictionary<String,AnyObject> = [
-            "puid": puid
-        ]
-        
-        let selectedEvent = NSUserDefaults.standardUserDefaults().valueForKey("selectedEvent") as! String
-        let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees").childByAutoId()
-        
-        database.setValue(newAttendee)
+    func goToList(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
     }
-    
-    
     /*
     // MARK: - Navigation
 

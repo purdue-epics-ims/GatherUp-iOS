@@ -15,15 +15,15 @@ class databaseEntries {
     private var _attendees: [attendees]?
     private var _eventKey: String!
     
-    var name:String {
+    var name:String! {
         return _name
     }
     
-    var description:String {
+    var description:String! {
         return _description
     }
     
-    var key:String {
+    var key:String! {
         return _eventKey
     }
     

@@ -38,6 +38,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.tableView.reloadData()
         })
         
+        self.navigationItem.hidesBackButton = true
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logout:")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +64,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].key, forKey: "selectedEvent")
+        print("THE KEY IS \(self.events[indexPath.row].key)")
+        NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].name, forKey: "selectedEventName")
+    }
+    
+    func logout(sender: UIBarButtonItem) {
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "accountUID")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     /*
