@@ -235,10 +235,10 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     }
     
     func postToFirebase(puid puid: String = "", lastName: String = "", firstName:String = "", email: String = "") {
-        var newAttendee: Dictionary<String,AnyObject> = [
+        let newAttendee: Dictionary<String,AnyObject> = [
             "puid": puid,
-            "last name": lastName,
-            "first name": firstName,
+            "lastname": lastName,
+            "firstname": firstName,
             "email": email
         ]
         

@@ -23,7 +23,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
-        // Retrieve new posts as they are added to the database
+        // Retrieve events after current date as they are added to the database
+        
+        let currentDate = NSDate()
+        
         database.queryOrderedByChild("dateID").observeEventType(.Value, withBlock: { snapshot in
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 self.events = []
@@ -31,7 +34,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     if let eventDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let event = databaseEntries(eventKey: key, dict: eventDict)
-                        self.events.append(event)
+                        
+                        let eventDate = NSDate(timeIntervalSince1970: event.dateID)
+                        
+                        let timeInterval = eventDate.timeIntervalSinceDate(currentDate) + 259200
+                        
+                        if timeInterval >= 0 {
+                            self.events.append(event)
+                        }
                     }
                 }
             }
@@ -58,6 +68,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.titleLabel.text = self.events[indexPath.row].name
         cell.descriptionLabel.text = self.events[indexPath.row].description
+        
+        let eventDate = NSDate(timeIntervalSince1970: self.events[indexPath.row].dateID)
+        
+        let dateFormatter = NSDateFormatter()
+        
+        let theDateFormat = NSDateFormatterStyle.ShortStyle
+        let theTimeFormat = NSDateFormatterStyle.ShortStyle
+        
+        dateFormatter.dateStyle = theDateFormat
+        dateFormatter.timeStyle = theTimeFormat
+        
+        cell.dateLabel.text = dateFormatter.stringFromDate(eventDate)
         
         return cell
     }

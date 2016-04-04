@@ -11,7 +11,7 @@ import Foundation
 class databaseEntries {
     private var _name: String!
     private var _description: String!
-    private var _eventdate: String?
+    private var _dateID: NSTimeInterval!
     private var _attendees: [attendees]?
     private var _eventKey: String!
     
@@ -27,6 +27,10 @@ class databaseEntries {
         return _eventKey
     }
     
+    var dateID:NSTimeInterval! {
+        return _dateID
+    }
+    
     init(name:String, description:String) {
         self._name = name
         self._description = description
@@ -39,6 +43,9 @@ class databaseEntries {
         }
         if let description = dict["description"] as? String {
             self._description = description
+        }
+        if let dateID = dict["dateID"] as? NSTimeInterval {
+            self._dateID = dateID
         }
     }
     

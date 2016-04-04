@@ -1,4 +1,4 @@
-
+/*
 #import "HelpViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <sys/utsname.h>
@@ -19,14 +19,14 @@
     return self;
 }
 
-/*
+
 - (void)dealloc {
     [_lbLogCount release];
     [_btnEmail release];
     [super dealloc];
 }
 */
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self removeAllSavedLogs];
@@ -181,3 +181,4 @@
 }
 
 @end
+*/

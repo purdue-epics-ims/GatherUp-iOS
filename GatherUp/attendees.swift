@@ -54,10 +54,10 @@ class attendees {
         if let puid = dict["puid"] as? String {
             self._puid = puid
         }
-        if let lastName = dict["last name"] as? String {
+        if let lastName = dict["lastname"] as? String {
             self._lastName = lastName
         }
-        if let firstName = dict["first name"] as? String {
+        if let firstName = dict["firstname"] as? String {
             self._firstName = firstName
         }
         if let email = dict["email"] as? String {

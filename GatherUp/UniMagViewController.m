@@ -89,7 +89,7 @@ static NSString* repr(NSData* byteArray);
     //keyboard
     [self registerForKeyboardNotifications: TRUE];
     
-    //init alert views
+    /*init alert views
 	prompt_connecting = [[UIAlertView alloc] 
         initWithTitle:@"UniMag"
         message:@"Connecting with UniMag."
@@ -103,7 +103,8 @@ static NSString* repr(NSData* byteArray);
         delegate:self
         cancelButtonTitle:@"Cancel"
         otherButtonTitles:nil];
-        
+    */
+    
     //reset ui state
     [self setAttachedLabelState:FALSE];
     [self setConnectedLabelState:FALSE];
@@ -491,11 +492,7 @@ static NSString* repr(NSData* byteArray);
     [prompt_waitingForSwipe show];
 
     return;
-    
-    prompt_waitingForSwipe.message = @"Waiting for card swipe...";
-    [prompt_waitingForSwipe show];
 }
-
 
 //called when the SDK hasn't received a swipe from the device within a configured
 // "swipe timeout interval".
