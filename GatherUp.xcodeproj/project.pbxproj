@@ -26,6 +26,7 @@
 		31C3F8C21C7FE59400D44AF7 /* UMCardData.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C3F8C01C7FE59400D44AF7 /* UMCardData.m */; };
 		31C3F8C41C7FE64A00D44AF7 /* IDTECH_UniMag.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C3F8C31C7FE64A00D44AF7 /* IDTECH_UniMag.a */; };
 		31CED5801C7D6D4F003FD3A5 /* AttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */; };
+		31F478B31CBB8257004D064E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F478B21CBB8257004D064E /* SettingsViewController.swift */; };
 		31FA29681C663BC1009D7AC6 /* databaseEntries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29671C663BC1009D7AC6 /* databaseEntries.swift */; };
 		31FA296A1C6641C7009D7AC6 /* attendees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA29691C6641C7009D7AC6 /* attendees.swift */; };
 		F4750F181C6BE00F009A6BDD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4750F171C6BE00F009A6BDD /* Media.xcassets */; };
@@ -83,6 +84,7 @@
 		31CED5781C7D6A24003FD3A5 /* uniMag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uniMag.h; sourceTree = "<group>"; };
 		31CED5791C7D6A65003FD3A5 /* GatherUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GatherUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		31CED57F1C7D6D4F003FD3A5 /* AttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewController.swift; sourceTree = "<group>"; };
+		31F478B21CBB8257004D064E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		31FA29671C663BC1009D7AC6 /* databaseEntries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = databaseEntries.swift; sourceTree = "<group>"; };
 		31FA29691C6641C7009D7AC6 /* attendees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = attendees.swift; sourceTree = "<group>"; };
 		A3CA5D4ACB2607B2609710B3 /* Pods_GatherUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatherUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				31BEF3391C55330C00983A46 /* Main.storyboard */,
 				31BEF3651C55C21200983A46 /* TableViewCell.swift */,
 				31BEF3631C55372100983A46 /* ListViewController.swift */,
+				31F478B21CBB8257004D064E /* SettingsViewController.swift */,
 				31CED5791C7D6A65003FD3A5 /* GatherUp-Bridging-Header.h */,
 				31FA29671C663BC1009D7AC6 /* databaseEntries.swift */,
 				31FA29691C6641C7009D7AC6 /* attendees.swift */,
@@ -411,6 +414,7 @@
 				31BEF3641C55372100983A46 /* ListViewController.swift in Sources */,
 				31C3F8C11C7FE59400D44AF7 /* AboutScreenViewController.m in Sources */,
 				31C3F8BB1C7FE58800D44AF7 /* SwipeViewController.m in Sources */,
+				31F478B31CBB8257004D064E /* SettingsViewController.swift in Sources */,
 				31C3F8BA1C7FE58800D44AF7 /* ReaderViewController.m in Sources */,
 				31BEF3361C55330C00983A46 /* AppDelegate.swift in Sources */,
 				31C3F8B81C7FE58800D44AF7 /* CommandViewController.m in Sources */,

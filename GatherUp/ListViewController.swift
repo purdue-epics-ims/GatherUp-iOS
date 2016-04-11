@@ -50,8 +50,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.navigationItem.hidesBackButton = true
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logout:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(ListViewController.logout(_:)))
         
+        let infoButton = UIButton(type: .InfoLight)
+        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), forControlEvents: .TouchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +91,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].key, forKey: "selectedEvent")
         print("THE KEY IS \(self.events[indexPath.row].key)")
         NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].name, forKey: "selectedEventName")
+    }
+    
+    func aboutPage(sender: UIButton) {
+        self.performSegueWithIdentifier("toSettingsPage", sender: self)
     }
     
     func logout(sender: UIBarButtonItem) {
