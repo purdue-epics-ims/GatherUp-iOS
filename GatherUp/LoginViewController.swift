@@ -25,6 +25,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.usernameText.text = ""
         self.passwordText.text = ""
+        
+        let infoButton = UIButton(type: .InfoLight)
+        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), forControlEvents: .TouchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -72,6 +76,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func aboutPage(sender: UIButton) {
+        self.performSegueWithIdentifier("toSettingsFromHome", sender: self)
     }
     
     /*
