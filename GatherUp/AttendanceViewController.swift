@@ -32,8 +32,8 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         
         //self.title = NSUserDefaults.standardUserDefaults().valueForKey("selectedEventName") as! String
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "uniMagConnected:", name: uniMagDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "swipeReceived:", name: uniMagDidReceiveDataNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AttendanceViewController.uniMagConnected(_:)), name: uniMagDidConnectNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AttendanceViewController.swipeReceived(_:)), name: uniMagDidReceiveDataNotification, object: nil)
         
         uniMagViewController.umsdk_activate()
         uniMagViewController.connectReader()
@@ -69,8 +69,7 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationItem.hidesBackButton = true
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "goToList:")
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(AttendanceViewController.goToList(_:)))
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +81,7 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         if let fName = firstNameText.text where fName != "", let lName = lastNameText.text where lName != "", let email = emailText.text where email != "" {
             
             var exists = 0;
+            var validEmail = 0;
             
             for attendee in eventAttendees {
                 if (lName == attendee.lastName && fName == attendee.firstName && email == attendee.email) {
@@ -103,8 +103,12 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
                 postToFirebase(lastName: lName, firstName: fName, email: email)
             }
             
+            else if validEmail == 2 {
+                self.showAlert("Invalid Email", msg: "Please enter a valid email address!")
+            }
+            
             else {
-                self.showAlert("Unsuccessful!", msg: "You have already registered for the event!")
+                self.showAlert("Unsuccessful", msg: "You have already registered for the event!")
             }
             
             firstNameText.text = ""
