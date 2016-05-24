@@ -17,6 +17,8 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
+    @IBOutlet weak var checkmarkImage: UIImageView!
+    @IBOutlet weak var successText: UILabel!
     
     
     private var uniMagObject: uniMag!
@@ -70,6 +72,9 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.hidesBackButton = true
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(AttendanceViewController.goToList(_:)))
+        
+        self.checkmarkImage.hidden = true
+        self.successText.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +86,7 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         if let fName = firstNameText.text where fName != "", let lName = lastNameText.text where lName != "", let email = emailText.text where email != "" {
             
             var exists = 0;
-            var validEmail = 0;
+            var emailValidityChecksPassed = 0;
             
             for attendee in eventAttendees {
                 if (lName == attendee.lastName && fName == attendee.firstName && email == attendee.email) {
@@ -98,22 +103,33 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             
-            if exists == 0 {
+            for character in email.characters {
+                if character == "@" {
+                    emailValidityChecksPassed += 1
+                }
+                if (emailValidityChecksPassed == 1 && character == ".") {
+                    emailValidityChecksPassed += 1;
+                } else if(emailValidityChecksPassed == 2) {
+                    emailValidityChecksPassed += 1;
+                }
+            }
+            
+            if (exists == 0 && emailValidityChecksPassed == 3) {
                 self.showAlert("Registered!", msg: "You have successfully registered for the event!")
                 postToFirebase(lastName: lName, firstName: fName, email: email)
+                
+                firstNameText.text = ""
+                lastNameText.text = ""
+                emailText.text = ""
             }
             
-            else if validEmail == 2 {
+            else if emailValidityChecksPassed != 3 {
                 self.showAlert("Invalid Email", msg: "Please enter a valid email address!")
             }
-            
+            /*
             else {
                 self.showAlert("Unsuccessful", msg: "You have already registered for the event!")
-            }
-            
-            firstNameText.text = ""
-            lastNameText.text = ""
-            emailText.text = ""
+            }*/
             
         } else {
             self.showAlert("Required Text Fields Empty", msg: "Please fill in your first name, last name and email ID to register")
@@ -205,6 +221,10 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
                     self.view.backgroundColor = UIColor.greenColor()
                 })
                 
+                NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(AttendanceViewController.showSuccess), userInfo: nil, repeats: false)
+                
+                NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AttendanceViewController.hideSuccess), userInfo: nil, repeats: false)
+                
                 UIView.animateWithDuration(1.0, animations: {
                     self.view.backgroundColor = UIColor.whiteColor()
                 })
@@ -255,6 +275,16 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     
     func goToList(sender: UIBarButtonItem){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func showSuccess(){
+        self.checkmarkImage.hidden = false
+        self.successText.hidden = false
+    }
+    
+    func hideSuccess(){
+        self.checkmarkImage.hidden = true
+        self.successText.hidden = true
     }
     /*
     // MARK: - Navigation
