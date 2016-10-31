@@ -9,13 +9,13 @@
 import Foundation
 
 class attendees {
-    private var _puid:String?
-    private var _lastName:String?
-    private var _firstName:String?
-    private var _email:String?
+    fileprivate var _puid:String?
+    fileprivate var _lastName:String?
+    fileprivate var _firstName:String?
+    fileprivate var _email:String?
     
     var puid: String {
-        if let exist = _puid where exist != "" {
+        if let exist = _puid, exist != "" {
             return _puid!
         }
         else {
@@ -24,7 +24,7 @@ class attendees {
     }
     
     var lastName: String {
-        if let exist = _lastName where exist != "" {
+        if let exist = _lastName, exist != "" {
             return _lastName!
         }
         else {
@@ -33,7 +33,7 @@ class attendees {
     }
     
     var firstName: String {
-        if let exist = _firstName where exist != "" {
+        if let exist = _firstName, exist != "" {
             return _firstName!
         }
         else {
@@ -42,7 +42,7 @@ class attendees {
     }
     
     var email: String {
-        if let exist = _email where exist != "" {
+        if let exist = _email, exist != "" {
             return _email!
         }
         else {

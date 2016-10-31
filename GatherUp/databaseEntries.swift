@@ -9,11 +9,11 @@
 import Foundation
 
 class databaseEntries {
-    private var _name: String!
-    private var _description: String!
-    private var _dateID: NSTimeInterval!
-    private var _attendees: [attendees]?
-    private var _eventKey: String!
+    fileprivate var _name: String!
+    fileprivate var _description: String!
+    fileprivate var _dateID: TimeInterval!
+    fileprivate var _attendees: [attendees]?
+    fileprivate var _eventKey: String!
     
     var name:String! {
         return _name
@@ -27,7 +27,7 @@ class databaseEntries {
         return _eventKey
     }
     
-    var dateID:NSTimeInterval! {
+    var dateID:TimeInterval! {
         return _dateID
     }
     
@@ -44,7 +44,7 @@ class databaseEntries {
         if let description = dict["description"] as? String {
             self._description = description
         }
-        if let dateID = dict["dateID"] as? NSTimeInterval {
+        if let dateID = dict["dateID"] as? TimeInterval {
             self._dateID = dateID
         }
     }
