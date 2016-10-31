@@ -293,15 +293,18 @@
 					31BEF3311C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0810;
 					};
 					31BEF3451C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 31BEF3311C55330C00983A46;
 					};
 					31BEF3501C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 31BEF3311C55330C00983A46;
 					};
 				};
@@ -575,6 +578,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -597,6 +601,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -609,6 +614,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
 			};
 			name = Debug;
@@ -621,6 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
 			};
 			name = Release;
@@ -632,6 +639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GatherUp;
 				USES_XCTRUNNER = YES;
 			};
@@ -644,6 +652,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GatherUp;
 				USES_XCTRUNNER = YES;
 			};

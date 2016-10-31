@@ -11,6 +11,30 @@ import AVFoundation
 import AudioToolbox
 import MediaPlayer
 import Firebase
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class AttendanceViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,7 +45,7 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var successText: UILabel!
     
     
-    private var uniMagObject: uniMag!
+    fileprivate var uniMagObject: uniMag!
     
     var uniMagViewController: UniMagViewController = UniMagViewController()
     
@@ -34,8 +58,8 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         
         //self.title = NSUserDefaults.standardUserDefaults().valueForKey("selectedEventName") as! String
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AttendanceViewController.uniMagConnected(_:)), name: uniMagDidConnectNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AttendanceViewController.swipeReceived(_:)), name: uniMagDidReceiveDataNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AttendanceViewController.uniMagConnected(_:)), name: NSNotification.Name(rawValue: uniMagDidConnectNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AttendanceViewController.swipeReceived(_:)), name: NSNotification.Name(rawValue: uniMagDidReceiveDataNotification), object: nil)
         
         uniMagViewController.umsdk_activate()
         uniMagViewController.connectReader()
@@ -53,12 +77,12 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         self.lastNameText.delegate = self
         self.emailText.delegate = self
         
-        let selectedEvent = NSUserDefaults.standardUserDefaults().valueForKey("selectedEvent") as! String
+        let selectedEvent = UserDefaults.standard.value(forKey: "selectedEvent") as! String
         
         let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees")
         
-        database.observeEventType(.Value, withBlock: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+        database?.observe(.value, with: { snapshot in
+            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
                 self.eventAttendees = []
                 for snap in snapshots {
                     if let attendeesDict = snap.value as? Dictionary<String, AnyObject> {
@@ -71,10 +95,10 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationItem.hidesBackButton = true
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(AttendanceViewController.goToList(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(AttendanceViewController.goToList(_:)))
         
-        self.checkmarkImage.hidden = true
-        self.successText.hidden = true
+        self.checkmarkImage.isHidden = true
+        self.successText.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,8 +106,8 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onPressRegister(sender: UIButton!) {
-        if let fName = firstNameText.text where fName != "", let lName = lastNameText.text where lName != "", let email = emailText.text where email != "" {
+    @IBAction func onPressRegister(_ sender: UIButton!) {
+        if let fName = firstNameText.text, fName != "", let lName = lastNameText.text, lName != "", let email = emailText.text, email != "" {
             
             var exists = 0;
             var emailValidityChecksPassed = 0;
@@ -91,12 +115,12 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
             for attendee in eventAttendees {
                 if (lName == attendee.lastName && fName == attendee.firstName && email == attendee.email) {
                     
-                    UIView.animateWithDuration(1.0, animations: {
-                        self.view.backgroundColor = UIColor.yellowColor()
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self.view.backgroundColor = UIColor.yellow
                     })
                     
-                    UIView.animateWithDuration(1.0, animations: {
-                        self.view.backgroundColor = UIColor.whiteColor()
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self.view.backgroundColor = UIColor.white
                     })
                     
                     exists = 1
@@ -136,31 +160,31 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func onScreenTap(sender: UITapGestureRecognizer!) {
+    @IBAction func onScreenTap(_ sender: UITapGestureRecognizer!) {
         self.firstNameText.resignFirstResponder()
         self.lastNameText.resignFirstResponder()
         self.emailText.resignFirstResponder()
     }
     
-    func uniMagConnected(notification: NSNotification) {
+    func uniMagConnected(_ notification: Notification) {
         self.showAlert("Swiper Connected", msg: "You may begin swiping Purdue IDs")
         uniMagViewController.swipeCard()
     }
     
-    func swipeReceived(notification: NSNotification) {
-        let data = notification.object as! NSData
+    func swipeReceived(_ notification: Notification) {
+        let data = notification.object as! Data
         // parse and do stuff with the swipe information
         
-        var parsedData = NSString(data:data, encoding:NSUTF8StringEncoding) as! String
+        var parsedData = NSString(data:data, encoding:String.Encoding.utf8.rawValue) as! String
         //Parsed Data = ;000000000=2229=0028437472=02?
         
         //Get valid PUID digits
         
-        var range = parsedData.startIndex..<parsedData.startIndex.advancedBy(16)
-        parsedData.removeRange(range)
+        var range = parsedData.startIndex..<parsedData.characters.index(parsedData.startIndex, offsetBy: 16)
+        parsedData.removeSubrange(range)
         
-        range = parsedData.startIndex.advancedBy(10)..<parsedData.endIndex
-        parsedData.removeRange(range)
+        range = parsedData.characters.index(parsedData.startIndex, offsetBy: 10)..<parsedData.endIndex
+        parsedData.removeSubrange(range)
         
         var checker = Int(parsedData)
         
@@ -203,12 +227,12 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
             for attendee in eventAttendees {
                 if parsedData == attendee.puid {
                     
-                    UIView.animateWithDuration(1.0, animations: {
-                        self.view.backgroundColor = UIColor.yellowColor()
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self.view.backgroundColor = UIColor.yellow
                     })
                     
-                    UIView.animateWithDuration(1.0, animations: {
-                        self.view.backgroundColor = UIColor.whiteColor()
+                    UIView.animate(withDuration: 1.0, animations: {
+                        self.view.backgroundColor = UIColor.white
                     })
                     
                     exists = 1
@@ -217,16 +241,16 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
             
             if exists == 0 {
             
-                UIView.animateWithDuration(1.0, animations: {
-                    self.view.backgroundColor = UIColor.greenColor()
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.view.backgroundColor = UIColor.green
                 })
                 
-                NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(AttendanceViewController.showSuccess), userInfo: nil, repeats: false)
+                Timer.scheduledTimer(timeInterval: 0.0, target: self, selector: #selector(AttendanceViewController.showSuccess), userInfo: nil, repeats: false)
                 
-                NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AttendanceViewController.hideSuccess), userInfo: nil, repeats: false)
+                Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(AttendanceViewController.hideSuccess), userInfo: nil, repeats: false)
                 
-                UIView.animateWithDuration(1.0, animations: {
-                    self.view.backgroundColor = UIColor.whiteColor()
+                UIView.animate(withDuration: 1.0, animations: {
+                    self.view.backgroundColor = UIColor.white
                 })
                 
                 print("Card Data: \(parsedData)")
@@ -239,52 +263,52 @@ class AttendanceViewController: UIViewController, UITextFieldDelegate {
         
         else {
             
-            UIView.animateWithDuration(1.0, animations: {
-                self.view.backgroundColor = UIColor.redColor()
+            UIView.animate(withDuration: 1.0, animations: {
+                self.view.backgroundColor = UIColor.red
             })
             
-            UIView.animateWithDuration(1.0, animations: {
-                self.view.backgroundColor = UIColor.whiteColor()
+            UIView.animate(withDuration: 1.0, animations: {
+                self.view.backgroundColor = UIColor.white
             })
         }
         
         uniMagViewController.swipeCard()
     }
     
-    func showAlert(title: String, msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func showAlert(_ title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func postToFirebase(puid puid: String = "", lastName: String = "", firstName:String = "", email: String = "") {
+    func postToFirebase(puid: String = "", lastName: String = "", firstName:String = "", email: String = "") {
         let newAttendee: Dictionary<String,AnyObject> = [
-            "puid": puid,
-            "lastname": lastName,
-            "firstname": firstName,
-            "email": email
+            "puid": puid as AnyObject,
+            "lastname": lastName as AnyObject,
+            "firstname": firstName as AnyObject,
+            "email": email as AnyObject
         ]
         
-        let selectedEvent = NSUserDefaults.standardUserDefaults().valueForKey("selectedEvent") as! String
+        let selectedEvent = UserDefaults.standard.value(forKey: "selectedEvent") as! String
         
         let database = Firebase(url: "https://dazzling-inferno-9963.firebaseio.com/event/"+selectedEvent+"/attendees")
         
-        database.childByAutoId().setValue(newAttendee)
+        database?.childByAutoId().setValue(newAttendee)
     }
     
-    func goToList(sender: UIBarButtonItem){
-        self.navigationController?.popViewControllerAnimated(true)
+    func goToList(_ sender: UIBarButtonItem){
+        self.navigationController?.popViewController(animated: true)
     }
     
     func showSuccess(){
-        self.checkmarkImage.hidden = false
-        self.successText.hidden = false
+        self.checkmarkImage.isHidden = false
+        self.successText.isHidden = false
     }
     
     func hideSuccess(){
-        self.checkmarkImage.hidden = true
-        self.successText.hidden = true
+        self.checkmarkImage.isHidden = true
+        self.successText.isHidden = true
     }
     /*
     // MARK: - Navigation

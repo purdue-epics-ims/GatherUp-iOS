@@ -18,7 +18,7 @@ class SettingsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(SettingsViewController.backToList(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(SettingsViewController.backToList(_:)))
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +26,8 @@ class SettingsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func backToList(sender: UIBarButtonItem){
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func backToList(_ sender: UIBarButtonItem){
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
