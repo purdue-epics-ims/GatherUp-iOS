@@ -293,15 +293,19 @@
 					31BEF3311C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					31BEF3451C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0800;
 						TestTargetID = 31BEF3311C55330C00983A46;
 					};
 					31BEF3501C55330C00983A46 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 9J33FGV6N4;
+						LastSwiftMigration = 0800;
 						TestTargetID = 31BEF3311C55330C00983A46;
 					};
 				};
@@ -562,8 +566,9 @@
 			baseConfigurationReference = 05DAF7B3E6C901932707461D /* Pods-GatherUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: nikhilfaips@gmail.com (N7H3SL632L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9J33FGV6N4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GatherUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -571,10 +576,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GatherUp",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.gatherUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.gatherUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -584,8 +590,9 @@
 			baseConfigurationReference = C91AC62D680BAC7B60B4945B /* Pods-GatherUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: nikhilfaips@gmail.com (N7H3SL632L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9J33FGV6N4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = GatherUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -593,10 +600,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GatherUp",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.purdue.gatherUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nn.gatherUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GatherUp/GatherUp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -609,6 +617,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
 			};
 			name = Debug;
@@ -621,6 +630,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatherUp.app/GatherUp";
 			};
 			name = Release;
@@ -632,6 +642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GatherUp;
 				USES_XCTRUNNER = YES;
 			};
@@ -644,6 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nn.GatherUpUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GatherUp;
 				USES_XCTRUNNER = YES;
 			};

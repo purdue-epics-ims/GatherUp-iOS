@@ -26,14 +26,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.usernameText.text = ""
         self.passwordText.text = ""
         
-        let infoButton = UIButton(type: .InfoLight)
-        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), forControlEvents: .TouchUpInside)
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if NSUserDefaults.standardUserDefaults().valueForKey("accountUID") != nil {
-            self.performSegueWithIdentifier("homePage", sender: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.value(forKey: "accountUID") != nil {
+            self.performSegue(withIdentifier: "homePage", sender: nil)
         }
     }
 
@@ -43,13 +43,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func onLoginPressed(sender: UIButton) {
-        if let userId = usernameText.text where userId != "", let pwd = passwordText.text where pwd != "" {
-            database.authUser(userId, password: pwd, withCompletionBlock: {
+    @IBAction func onLoginPressed(_ sender: UIButton) {
+        if let userId = usernameText.text , userId != "", let pwd = passwordText.text , pwd != "" {
+            database?.authUser(userId, password: pwd, withCompletionBlock: {
                 error, authData in
                 
                 if error != nil {
-                    if error.code == -8 {
+                    if error!._code == -8 {
                         self.showErrorAlert("Account does not exist", msg: "Oops! Looks like you haven't been authorized yet!")
                         
                     }
@@ -57,8 +57,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.showErrorAlert("Invalid UserID or Password", msg: "Oops! Looks like you've made a typo or forgotten your username/password!")
                     }
                 } else {
-                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "accountUID")
-                    self.performSegueWithIdentifier("homePage", sender: nil)
+                    UserDefaults.standard.setValue(authData?.uid, forKey: "accountUID")
+                    self.performSegue(withIdentifier: "homePage", sender: nil)
                 }
             })
         } else {
@@ -66,20 +66,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func onScreenTap(sender: UITapGestureRecognizer) {
+    @IBAction func onScreenTap(_ sender: UITapGestureRecognizer) {
         self.usernameText.resignFirstResponder()
         self.passwordText.resignFirstResponder()
     }
     
-    func showErrorAlert(title: String, msg: String) {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+    func showErrorAlert(_ title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
-    func aboutPage(sender: UIButton) {
-        self.performSegueWithIdentifier("toSettingsFromHome", sender: self)
+    func aboutPage(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toSettingsFromHome", sender: self)
     }
     
     /*

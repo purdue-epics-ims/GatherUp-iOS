@@ -25,19 +25,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Retrieve events after current date as they are added to the database
         
-        let currentDate = NSDate()
+        let currentDate = Date()
         
-        database.queryOrderedByChild("dateID").observeEventType(.Value, withBlock: { snapshot in
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+        database?.queryOrdered(byChild: "dateID").observe(.value, with: { snapshot in
+            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
                 self.events = []
                 for snap in snapshots {
                     if let eventDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        let event = databaseEntries(eventKey: key, dict: eventDict)
+                        let event = databaseEntries(eventKey: key!, dict: eventDict)
                         
-                        let eventDate = NSDate(timeIntervalSince1970: event.dateID)
+                        let eventDate = Date(timeIntervalSince1970: event.dateID)
                         
-                        let timeInterval = eventDate.timeIntervalSinceDate(currentDate) + 259200
+                        let timeInterval = eventDate.timeIntervalSince(currentDate) + 259200
                         
                         if timeInterval >= 0 {
                             self.events.append(event)
@@ -50,10 +50,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.navigationItem.hidesBackButton = true
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(ListViewController.logout(_:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(ListViewController.logout(_:)))
         
-        let infoButton = UIButton(type: .InfoLight)
-        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), forControlEvents: .TouchUpInside)
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(ListViewController.aboutPage(_:)), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
 
@@ -62,44 +62,44 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reusableCell", forIndexPath: indexPath) as! TableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath) as! TableViewCell
         
-        cell.titleLabel.text = self.events[indexPath.row].name
-        cell.descriptionLabel.text = self.events[indexPath.row].description
+        cell.titleLabel.text = self.events[(indexPath as NSIndexPath).row].name
+        cell.descriptionLabel.text = self.events[(indexPath as NSIndexPath).row].description
         
-        let eventDate = NSDate(timeIntervalSince1970: self.events[indexPath.row].dateID)
+        let eventDate = Date(timeIntervalSince1970: self.events[(indexPath as NSIndexPath).row].dateID)
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         
-        let theDateFormat = NSDateFormatterStyle.ShortStyle
-        let theTimeFormat = NSDateFormatterStyle.ShortStyle
+        let theDateFormat = DateFormatter.Style.short
+        let theTimeFormat = DateFormatter.Style.short
         
         dateFormatter.dateStyle = theDateFormat
         dateFormatter.timeStyle = theTimeFormat
         
-        cell.dateLabel.text = dateFormatter.stringFromDate(eventDate)
+        cell.dateLabel.text = dateFormatter.string(from: eventDate)
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].key, forKey: "selectedEvent")
-        print("THE KEY IS \(self.events[indexPath.row].key)")
-        NSUserDefaults.standardUserDefaults().setValue(self.events[indexPath.row].name, forKey: "selectedEventName")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UserDefaults.standard.setValue(self.events[(indexPath as NSIndexPath).row].key, forKey: "selectedEvent")
+        print("THE KEY IS \(self.events[(indexPath as NSIndexPath).row].key)")
+        UserDefaults.standard.setValue(self.events[(indexPath as NSIndexPath).row].name, forKey: "selectedEventName")
     }
     
-    func aboutPage(sender: UIButton) {
-        self.performSegueWithIdentifier("toSettingsPage", sender: self)
+    func aboutPage(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toSettingsPage", sender: self)
     }
     
-    func logout(sender: UIBarButtonItem) {
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "accountUID")
-        self.navigationController?.popViewControllerAnimated(true)
+    func logout(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.setValue(nil, forKey: "accountUID")
+        self.navigationController?.popViewController(animated: true)
     }
     
     /*
